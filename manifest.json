@@ -5,5 +5,5 @@
     "background_color": "#fafafa",
     "gcm_sender_id": "243635860463",
     "display": "standalone",
-    "start_url": "./"
+    "start_url": "https://yahshoua.github.io/serviceworker.github.io/index.html"
 }
