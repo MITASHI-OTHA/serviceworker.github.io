@@ -1,11 +1,11 @@
-self.addEventListerner('install', event=> {
+self.addEventListener('install', event=> {
     self.skipWaiting()
     console.log('service worker installer')
 })
-self.addEventListerner('activate', event=> {
+self.addEventListener('activate', event=> {
     console.log('service worker activé')
 })
-self.addEventListerner('push', event=> {
+self.addEventListener('push', event=> {
     console.log('notification reçu ', event)
     const data = event.data.json()
     const options= {
