@@ -13,7 +13,7 @@ self.addEventListener('push', event=> {
     //     icon: data.icon?data.icon: '',
     //     image: data.image?data.image:''
     // }
-    event.waitingUntil(
+    event.waitUntil(
             Promise.all([
                 self.registration.showNotification("salut")])
         )
