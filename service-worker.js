@@ -7,7 +7,7 @@ self.addEventListener('activate', event=> {
 })
 self.addEventListener('push', event=> {
     console.log('notification reçu ', event)
-    const data = event.data.json()
+   // const data = event.data.json()
     const options= {
         body: data.body,
         icon: data.icon?data.icon: '',
