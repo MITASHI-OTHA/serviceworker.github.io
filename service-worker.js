@@ -8,11 +8,11 @@ self.addEventListener('activate', event=> {
 self.addEventListener('push', event=> {
     console.log('notification reçu ', event)
    // const data = event.data.json()
-    const options= {
-        body: data.body,
-        icon: data.icon?data.icon: '',
-        image: data.image?data.image:''
-    }
+    // const options= {
+    //     body: data.body,
+    //     icon: data.icon?data.icon: '',
+    //     image: data.image?data.image:''
+    // }
     event.waitingUntil(
             Promise.all([
                 self.registration.showNotification("salut")])
@@ -23,7 +23,7 @@ self.addEventListener('notificationclick', event=> {
     event.notification.close()
     event.notification.data.url= 'https://yahshoua.github.io/serviceworker.github.io/' //url de votre site
     var clickResponsePromise = Promise.resolve()
-    if(event.notification.data && event.notification.data.url) {
+    if(event.notification.data.url) {
         clickResponsePromise = clients.openWindow(event.notification.data.url)
         event.waitingUntil(
             Promise.all([
