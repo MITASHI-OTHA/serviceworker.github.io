@@ -15,10 +15,12 @@
 </div>
 
 		<script>
-    if ('serviceWorker' in navigator) {
-      console.log('serviceWorker oooopen')
-      navigator.serviceWorker.register('service-worker.js');
-}
+      window.addEventListener('load', ()=> {
+          if ('serviceWorker' in navigator) {
+                console.log('serviceWorker oooopen')
+                navigator.serviceWorker.register('service-worker.js');
+          }
+      })
     </script>
 </body>
 </html>
