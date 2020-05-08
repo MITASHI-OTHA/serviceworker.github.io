@@ -15,6 +15,19 @@ self.addEventListener('push', event=> {
     }
     event.waitingUntil(
             Promise.all([
-                self.registration.showNotification(data.title, options)])
+                self.registration.showNotification("salut")])
         )
+})
+self.addEventListener('notificationclick', event=> {
+    console.log('notification cliqué ', event)
+    event.notification.close()
+    event.notification.data.url= 'https://yahshoua.github.io/serviceworker.github.io/' //url de votre site
+    var clickResponsePromise = Promise.resolve()
+    if(event.notification.data && event.notification.data.url) {
+        clickResponsePromise = clients.openWindow(event.notification.data.url)
+        event.waitingUntil(
+            Promise.all([
+                clickResponsePromise
+                ]))
+    }
 })
