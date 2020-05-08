@@ -1,32 +1,20 @@
-self.addEventListener('install', event => {
+self.addEventListener('install', event=> {
     self.skipWaiting()
-    console.log('worker installed', event)
+    console.log('service worker installer')
 })
-
-self.addEventListener('activate', event => {
-    console.log('worker activated', event)
+self.addEventListener('activate', event=> {
+    console.log('service worker activé')
 })
-
-self.addEventListener('push', event => {
-    console.log('push fired', event)
-
+self.addEventListener('push', event=> {
+    console.log('notification reçu ', event)
     const data = event.data.json()
-
-    const options = {
+    const options= {
         body: data.body,
-        icon: data.icon ? data.icon : '',
-        image: data.image ? data.image : '',
-        data: {
-            url: data.url
-        }
+        icon: data.icon?data.icon: '',
+        image: data.image?data.image:''
     }
-
-    if (data.actions)
-        options.actions = data.actions
-
-    event.waitUntil(
-        Promise.all([
-            self.registration.showNotification(data.title, options)
-        ])
-    )
+    event.waitingUntil(
+            Promise.all([
+                self.registration.showNotification(data.title, options)])
+        )
 })
